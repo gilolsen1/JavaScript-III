@@ -9,6 +9,9 @@
 * write out a code example of each explanation above
 */
 
+/*
+
+
 // Principle 1
 
 // code example for Window Binding
@@ -79,6 +82,10 @@ kira.eatsCookies();
 
 
 // Principle 4
+
+//Whenever .call (for individual arguments) and .apply (for array arguments) are used, 
+//the first argument in that function is THIS.
+
 // code example for Explicit Binding
 //TK example:
 jerry.speak.call(newman); 
@@ -95,6 +102,8 @@ gil.eatsCookies.call(newman);
 
 
 
+UNCOMMMENT THE WRAPPER COMMENT AFTER FINISHING PROTYPES
+*/
 
 
 
