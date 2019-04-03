@@ -41,14 +41,14 @@ myObj.saysHi();
 
 //
 
-
+//constructor function example form TK for practice
 
 function CordialPerson(greeter) {                   //CordialPerson is a constructor function that takes in a "greeter". 
     this.greeting = "Hello";                           //No cordial people exist. this function is how we make them.
     this.greeter= greeter; //why 
     this.speak= function() {
         console.log(this.greeting +this.greeter);   //logs the actual phrase
-        console.log(this);                          //logs the entire object ie. "CordialPerson {greeting: "Hello", greeter: "Newman", speak: ƒ}"
+        console.log(this);                           //logs the entire object ie. "CordialPerson {greeting: "Hello", greeter: "Newman", speak: ƒ}"
     }
 }
 
@@ -57,7 +57,44 @@ const newman= new CordialPerson("Jerry");       //creating newman
 
 newman.speak();                                //newman from line56 exists, we're invoking the .speak() method.
 jerry.speak();
+console.log("NOTE:I typed out the TK example for practice: super helpful: my example below.") 
+//My example of NEW keyword binding
+
+function Cookiemonster(name, quantity, cookieType) {
+    this.name= name,                                    
+    this.cookieType = cookieType,
+    this.quantity= quantity,
+    this.eatsCookies= function() {
+        console.log(`${this.name}  gonna eat all ${this.quantity} of dem ${this.cookieType} cookies! YUM!! `);
+        console.log(this);
+    }
+}
+
+const gil= new Cookiemonster("gil", 50, "chocolate chip");
+gil.eatsCookies();
+console.log(this);
+const kira= new Cookiemonster("kira", 5, "oatmeal raisin");
+kira.eatsCookies();
+
+
 
 // Principle 4
-
 // code example for Explicit Binding
+//TK example:
+jerry.speak.call(newman); 
+console.log(this);
+console.log("see above test");
+
+//MY EXAMPLE
+gil.eatsCookies.call(kira);
+console.log("gil.eatsCookies is getting called above, but call is over-riding this in that obejct to parameters from const kira line 76")
+//extra test for understanding
+gil.eatsCookies.call(newman);
+//"call is explicitly defining newman as this- 
+//since newman line 56 creates new cordial person, only has jerry as parameter, eatsCookies doesn't know what to do with it and throws undefined
+
+
+
+
+
+
