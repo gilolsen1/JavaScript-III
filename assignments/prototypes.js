@@ -24,7 +24,7 @@
   * destroy() // prototype method that returns: `${this.name} was removed from the game.`
 */
 
-// my wrong  version
+// my original version
 // function GameObject(createdAt, name, dimensions) {
 //   this.createdAt = createdAt,
 //   this.name = name,
@@ -36,15 +36,20 @@
 
 //pair programmed version 
 function GameObject(attrs) {
-  this.createdAt = attrs.createdAt;               // new Date();  // semi colons instead of commas?
-  this.name = attrs.name;                                         // this is the template... $$$$$not an object YET *****$$$$$
-  this.dimensions = attrs.dimensions;                                           //passing in variables in template.... 
-}
+  this.createdAt = attrs.createdAt;            // NOTE:  Semi colons instead of commas:
+  this.name = attrs.name;                      // this is the template... $$$$$ it's not an object YET **$$$$$
+  this.dimensions = attrs.dimensions;          //we're just setting variables in the constructor/template.... 
+}                                              //when new GameObject is created, THAT object's key/value syntax
+                                               //will be key:value,   colon:comma, 
 //as prototype function
-GameObject.prototype.destroy=function() {                     //creating destroy method on the GameObject's (template) prototype
-   return `${this.name} was removed from the game.`           //
+GameObject.prototype.destroy=function() {             //creating destroy method on the GameObject's (template) prototype
+   return `${this.name} was removed from the game.`   
 }
 
+//NOTE: new Date();
+//New date @line 39 was a great idea and cool tool, 
+//but could cause conflict in this use case 
+//b/c data is coming in from object attrs upon `const newObj = New GameObject()`  {attrs}
 
 
 /*
@@ -59,6 +64,7 @@ GameObject.prototype.destroy=function() {                     //creating destroy
 */
 
 function CharacterStats (attrs) {
+  //CALL GAME OBJECT HERE TO SET UP INHERITANCE
   this.healthPoints= attrs.healthPoints;
   this.name = attrs.name;
   this.takeDamage = function () {                   //this.`functionName` = function `()` {codeblock}         Syntax note
@@ -99,7 +105,7 @@ function Humanoid (team, weapons, language) {
 /*
   * Inheritance chain: GameObject -> CharacterStats -> Humanoid
             // Start with GameObject = no inheritance because no parent
-            // call GameObject in CharacterStats, before the rest of the template.
+            // call GameObject in CharacterStats, before the rest of the template.   (line 67 I believe)
             // Create the prototype functions for Character Stats
             // Set up inheritance for Humanoid
                   // call characterStats  =  then humanoid will automatically get GameObject
@@ -109,7 +115,8 @@ function Humanoid (team, weapons, language) {
   * Instances of CharacterStats should have all of the same properties as GameObject.
 */
 
-//GIL'S ATTEMPT AT INHERITANCE
+//NEXT ACTION ITEM:
+//GIL'S ATTEMPT AT INHERITANCE:
 
 
 
