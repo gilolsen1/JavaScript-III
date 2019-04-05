@@ -63,14 +63,16 @@ GameObject.prototype.destroy=function() {             //creating destroy method 
 */
 
 function CharacterStats (attrs) {
-  GameObject.call(this, attrs);                          // calling to set up inheritance of "key: value template$$$$$$$$$" 
+  GameObject.call(this, attrs);  // calling to set up inheritance of "key: value template $$$$$$$$$" 
   this.healthPoints= attrs.healthPoints;
   this.name = attrs.name;
 }
 
-CharacterStats.prototype = Object.create(GameObject.prototype);    //"link" line of code. the constructor you're creating is first
-                                                                    //you're passing in gameobject.prototype to copy into charstat prototype.
-                                                                    //type in english in notes.  //he Object.create() method creates a new object, using an existing object as the prototype of the newly created object.
+CharacterStats.prototype = Object.create(GameObject.prototype);    
+//"link" line of code. the constructor you're creating is first
+ //when you create new object,you're passing in gameobject.prototype to copy into charstat prototype.
+ //type in english in notes.  
+ //"The Object.create() method creates a new object, using an existing object as the prototype of the newly created object.""
 
   // this.takeDamage = function () {                    // 74- 77 was my original method on CharacterStats
   //   return `${this.name} took damage.`               //this.`functionName` = function `()` {codeblock}         Syntax note
