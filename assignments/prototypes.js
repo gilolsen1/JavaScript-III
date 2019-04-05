@@ -36,8 +36,7 @@
 
 //pair programmed version 
 function GameObject(attrs) {
-  this.createdAt = attrs.createdAt;            // NOTE:  Semi colons instead of commas:
-  this.name = attrs.name;                      // this is the template... $$$$$ it's not an object YET **$$$$$
+  this.createdAt = attrs.createdAt;            // NOTE:  Semi colons instead of commas:  // this is the template... $$$$$ it's not an object YET **$$$$$     
   this.dimensions = attrs.dimensions;          //we're just setting variables in the constructor/template.... 
 }                                              //when new GameObject is created, THAT object's key/value syntax
                                                //will be key:value,   colon:comma, 
@@ -64,21 +63,26 @@ GameObject.prototype.destroy=function() {             //creating destroy method 
 */
 
 function CharacterStats (attrs) {
-  //CALL GAME OBJECT HERE TO SET UP INHERITANCE
+  GameObject.call(this, attrs);                          // calling to set up inheritance of "key: value template$$$$$$$$$" 
   this.healthPoints= attrs.healthPoints;
   this.name = attrs.name;
-  this.takeDamage = function () {                   //this.`functionName` = function `()` {codeblock}         Syntax note
-    return `${this.name} took damage.`
-  }
 }
 
+CharacterStats.prototype = Object.create(GameObject.prototype);    //"link" line of code. the constructor you're creating is first
+                                                                    //you're passing in gameobject.prototype to copy into charstat prototype.
+                                                                    //type in english in notes.  //he Object.create() method creates a new object, using an existing object as the prototype of the newly created object.
+
+  // this.takeDamage = function () {                    // 74- 77 was my original method on CharacterStats
+  //   return `${this.name} took damage.`               //this.`functionName` = function `()` {codeblock}         Syntax note
+  // }
+
+//CharacterStats takeDamage as prototype
+CharacterStats.prototype.takeDamage=function () {          //THIS { was throwing error in console b/c did not say "=function" 
+  return `${this.name} took damage.`
+}
 // call game object in characterStats  will attach CharacterStats to GameObject
 // so when you do NEW game object it will know about CharacterStats 
-
-
-
-
-
+////////////////////////////////
 /*
   === Humanoid (Having an appearance or character resembling that of a human.) ===
   * team
@@ -86,21 +90,23 @@ function CharacterStats (attrs) {
   * language
   * greet() // prototype method -> returns the string '<object name> offers a greeting in <object language>.'
   * 
-  * 
-  * 
   * should inherit destroy() from GameObject through CharacterStats
   * should inherit takeDamage() from CharacterStats
 */
-
-function Humanoid (team, weapons, language) {
-  this.team = team,
-  this.weapons = weapons,
-  this.language = language,
-  this.greet= function() {
-    return `${this.name} offers a greeting in ${this.language}`
-  }
+function Humanoid (attrs) {
+  CharacterStats.call(this,attrs);                                            //copy pasting kinda blindly here...              //but seems to be doing something
+  this.team = attrs.team;
+  this.weapons = attrs.weapons;
+  this.language = attrs.language;
+  // this.greet= function() {                                                   //My original method for .greet
+  //   return `${this.name} offers a greeting in ${this.language}`
+  // }
 }
-
+Humanoid.prototype = Object.create(CharacterStats.prototype); 
+//.greet as prototype function on Humanoid prototype
+Humanoid.prototype.greet =function() {
+  return `${this.name} offers a greeting in ${this.language}`
+}
 
 /*
   * Inheritance chain: GameObject -> CharacterStats -> Humanoid
