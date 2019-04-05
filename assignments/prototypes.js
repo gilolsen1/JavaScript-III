@@ -102,7 +102,10 @@ function Humanoid (attrs) {
   //   return `${this.name} offers a greeting in ${this.language}`
   // }
 }
-Humanoid.prototype = Object.create(CharacterStats.prototype); 
+
+Humanoid.prototype = Object.create(CharacterStats.prototype);                   //SET UP PROTOTYPE INHERITANCE
+
+
 //.greet as prototype function on Humanoid prototype
 Humanoid.prototype.greet =function() {
   return `${this.name} offers a greeting in ${this.language}`
