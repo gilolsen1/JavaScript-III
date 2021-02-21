@@ -12,6 +12,98 @@
 </head>
 
 <body>
-<h1>JS III - Check your work in the console!</h1>
+<img src="./images/Screen Shot 2019-04-04 at 11.34.02 PM.png" alt="">
+  <h1>JS III : Binding, "This" and Prototypical Inheritance w/ call+ apply </h1>
+<img src="./images/final_jsIII_clean_version.png" alt="final_version">
+<h2>RED SECTIONS == SECTION SEPERATORS </h2>
+<h2>YELLOW==CONSTRUCTOR FUNCTIONS/ "OBJECT TEMPLATES"</h2>
+<h2>PURPLE==ADDING A METHOD TO THAT OBJECT'S PROTOTYPE </h2>
+<h2>GREEN== HIGHLIGHTING PROTOTYPE INHERITANCE CHAIN</h2>
+
+<hr>
+<h2>NOTES</h2>
+
+<ul>
+  <li>binding</li>
+  <li>Why use semi colons instead of colons in Constructor function templates?</li>
+  <li>WTF is ATTRS? and why it's used</li>
+  <li>How to use this.attr1 = attr1; this.attr2= attr2</li>
+  <li>Breaking out methods into an object's prototype = ObjectName.prototype.methodName=function() {//code} </li>
+  <li>using .call as the first line in a constuctor function to inherit key:value pairs from parent</li>
+  <li>using object.create() to inherit prototypes</li>
+
+</ul>
+
+<h2>TOOLS</h2>
+<li>Quokka extension installed to help with live-logging in VSCODE h/t to Randy!</li>
+<hr>
+<h2>A poll from my Lambda Cohort:</h2>
+<img src="./images/nervous.png" alt="">
+<hr>
+<h2>ACUTELY AWARE --></h2>
+<div>
+    <p>It was very useful to copy the Training kit example, follow it step by step, and write my notes IN the code as comments. <br>
+    The Seinfield example is from the Training kit, my cookie monster example was crafted after understanding how it works. <br>
+  Please don't tell my daughter I ate 10X the amount of cookies as she did, she'll be PISSED. </p>
+<img src="./images/new_binding.png" alt="my new binding code">
+<img src="./images/new binding console.png" alt="new_binding console results">
+<hr>
+<p> <h2>USING NEW AND CONSTRUCTOR FUNCTION: MAPPING FROM OBJECT LITERAL THAT IS FED TO ConstructorFunction ()</h2> </p>
+<p>Following image is my drawings over the Lambda TK section on constructor functions. <br>
+this is when I understood creating a new Function, passing in and object of attributes getting mapped into the tempate.</p>
+<hr>
+<img src="./images/new_mapping.png" alt="">
+
+</div>
+
+<hr>
+<p><h2>Constuctor Function notes:</h2>
+<h3 >attrs, this.attrs1=attrs1; , why semicolons? and color:purple; breaking out method into prototype</h3>
+<p>set up styled template for these notes sheets!!!</p>
+
+<p>My Original Version: understood constructor function from TK</p>
+<p>pair programming with standup Ryan and ernesto, didn't really understand it super well</p>
+<p>followup with PM / Randy to break down and compare both, answering my questions in comments</p>
+<p>broke down how to attack the next problem, then set to struggle on it. </p>
+<p>created this image / reviewed by making this page</p>
+
+</p>
+
+<img src="./images/constructor_function learning.png" alt="">
+<h2>NEW DATE --- COOL TOOL BUT NOT FOR THIS READ MORE LATER</h2>
+<hr>
+<h2>INHERITANCE PLAN OF ATTACK</h2>
+<img src="./images/inheritance.png" alt="inheritance breakdown of problem">
+<p></p>
+
+<hr>
+<h1>EXECUTION</h1>
+<p>Was able to follow that plan of attack and get 90% of the way there. <br>
+  the last 10% was the hardest. <br>
+
+  <h3>object.create has to be OUTSIDE the constructor function. I was writing it INSIDE.</h3>
+  <p>(right below.call, above this.healthpoints/first keytemplate)</p> <br>
+  By moving those 3 lines of code outside the function, the entire thing worked. 
+</p>
+<hr>
+<h1>Step 1- .Call() in first line of constructor function</h1>
+
+<img src="./images/call_link_keyvaluetemplate.png" alt="call function">
+<p>On line 66, I call GameObjects (the parent object) and use .call. 
+  I pass in "This" (the new Character Stats object this function is creating) and the attrs object. <br>
+This step includes all the "this.key=attrs.values" from the parent object in each new CharacterStats object </p>
+<p>THE PROTOTYPE INHERITANCE IS A SEPERATE STEP, OUTSIDE THE CONSTRUCTOR FUNCTION</p>
+<hr>
+<h1>PROTOTYPE INHERITANCE via OBJECT.CREATE</h1>
+<p>KINDLY NOTE: Constructor function ends at 69 } and this starts at 71 : ) </p>
+<img src="./images/prototype inheritance.png" alt="proto inheritance">
+<p>line 71 is the only active code <br>
+in english: " hey javscript... I'm talking about CharacterStats object, specifically, the prototype of that object. <br>
+Make it the same as whatever is passed in from the create method... in this case, the GameObject's prototype <br>
+THIS IS WHERE I'M MAKING THE PROTOTYPES THE SAME</p>
+
+<hr>
+<h1>A day late... but got it done... </h1>
+<img src="./images/Screen Shot 2019-04-04 at 11.57.49 PM.png" alt="">
 </body>
 </html>
